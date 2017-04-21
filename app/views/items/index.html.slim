@@ -9,9 +9,9 @@ table
       th
       th
 
-  tbody
+  tbody#sortable data-update="sort_items_path"
     - @items.each do |item|
-      tr
+      tr id="#{item.id}"
         td = item.name
         td = item.done
         td = link_to 'Show', item

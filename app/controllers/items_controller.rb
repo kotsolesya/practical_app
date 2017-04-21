@@ -80,4 +80,12 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def sort
+    params[:items].each_with_index do |id, index|
+      Item.where(id: id).update_all(priority: index + 1)
+    end
+    render nothing: true
+  end
+
 end
